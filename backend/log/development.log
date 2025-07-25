@@ -1,0 +1,173 @@
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE DATABASE `todoapp_development` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE DATABASE `todoapp_test` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('5640956430423267030', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (5.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' ORDER BY `ar_internal_metadata`.`key` ASC LIMIT 1[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.9ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2025-07-25 03:32:33.885781', '2025-07-25 03:32:33.885783')[0m
+Migrating to CreateTodos (1)
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE `todos` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `title` varchar(255) NOT NULL, `completed` tinyint(1) DEFAULT FALSE NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE INDEX `index_todos_on_completed` ON `todos` (`completed`)[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE INDEX `index_todos_on_created_at` ON `todos` (`created_at`)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('1')[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('5640956430423267030')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE DATABASE `todoapp_development` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE DATABASE `todoapp_test` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('5640956430423267030', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (3.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' ORDER BY `ar_internal_metadata`.`key` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('5640956430423267030')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE DATABASE `todoapp_development` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE DATABASE `todoapp_test` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('5640956430423267030', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' ORDER BY `ar_internal_metadata`.`key` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('5640956430423267030')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/ws" for 192.168.65.1 at 2025-07-25 03:36:24 +0000
+Started GET "/api/v1/todos" for 192.168.65.1 at 2025-07-25 03:36:24 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT `todos`.* FROM `todos` ORDER BY `todos`.`created_at` DESC[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:6:in `index'
+Completed 200 OK in 23ms (Views: 1.3ms | ActiveRecord: 1.8ms | Allocations: 24438)
+
+
+Started GET "/api/v1/todos" for 192.168.65.1 at 2025-07-25 03:36:24 +0000
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT `todos`.* FROM `todos` ORDER BY `todos`.`created_at` DESC[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:6:in `index'
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.2ms | Allocations: 600)
+
+
+Started GET "/ws" for 192.168.65.1 at 2025-07-25 03:36:25 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+Started GET "/" for 192.168.65.1 at 2025-07-25 03:36:27 +0000
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/bundle/gems/railties-7.1.5.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/bundle/gems/railties-7.1.5.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.4ms | Allocations: 270)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms | Allocations: 1079)
+
+
+Started GET "/ws" for 192.168.65.1 at 2025-07-25 03:36:28 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+Started GET "/ws" for 192.168.65.1 at 2025-07-25 03:36:32 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+Started POST "/api/v1/todos" for 192.168.65.1 at 2025-07-25 03:36:34 +0000
+Processing by Api::V1::TodosController#create as HTML
+  Parameters: {"todo"=>{"title"=>"新しいタスク", "completed"=>false}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `create'
+  [1m[36mTodo Create (2.5ms)[0m  [1m[32mINSERT INTO `todos` (`title`, `completed`, `created_at`, `updated_at`) VALUES ('新しいタスク', FALSE, '2025-07-25 03:36:34.890754', '2025-07-25 03:36:34.890754')[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (21.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `create'
+Completed 201 Created in 46ms (Views: 0.3ms | ActiveRecord: 32.5ms | Allocations: 7463)
+
+
+Started PUT "/api/v1/todos/1" for 192.168.65.1 at 2025-07-25 03:36:37 +0000
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"todo"=>{"completed"=>true}, "id"=>"1"}
+  [1m[36mTodo Load (0.6ms)[0m  [1m[34mSELECT `todos`.* FROM `todos` WHERE `todos`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:39:in `set_todo'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:24:in `update'
+  [1m[36mTodo Update (2.5ms)[0m  [1m[33mUPDATE `todos` SET `todos`.`completed` = TRUE, `todos`.`updated_at` = '2025-07-25 03:36:37.104977' WHERE `todos`.`id` = 1[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:24:in `update'
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:24:in `update'
+Completed 200 OK in 21ms (Views: 0.4ms | ActiveRecord: 7.0ms | Allocations: 3084)
+
+
+Started PUT "/api/v1/todos/1" for 192.168.65.1 at 2025-07-25 03:36:38 +0000
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"todo"=>{"completed"=>false}, "id"=>"1"}
+  [1m[36mTodo Load (2.0ms)[0m  [1m[34mSELECT `todos`.* FROM `todos` WHERE `todos`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:39:in `set_todo'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:24:in `update'
+  [1m[36mTodo Update (0.6ms)[0m  [1m[33mUPDATE `todos` SET `todos`.`completed` = FALSE, `todos`.`updated_at` = '2025-07-25 03:36:38.527382' WHERE `todos`.`id` = 1[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:24:in `update'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:24:in `update'
+Completed 200 OK in 17ms (Views: 0.4ms | ActiveRecord: 4.8ms | Allocations: 1917)
+
+
+Started DELETE "/api/v1/todos/1" for 192.168.65.1 at 2025-07-25 03:36:39 +0000
+Processing by Api::V1::TodosController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT `todos`.* FROM `todos` WHERE `todos`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:39:in `set_todo'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:32:in `destroy'
+  [1m[36mTodo Destroy (0.2ms)[0m  [1m[31mDELETE FROM `todos` WHERE `todos`.`id` = 1[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:32:in `destroy'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:32:in `destroy'
+Completed 204 No Content in 5ms (ActiveRecord: 2.0ms | Allocations: 1555)
+
+
+Started GET "/ws" for 192.168.65.1 at 2025-07-25 03:36:40 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+Started GET "/ws" for 192.168.65.1 at 2025-07-25 03:36:56 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+Started POST "/api/v1/todos" for 192.168.65.1 at 2025-07-25 03:37:24 +0000
+Processing by Api::V1::TodosController#create as HTML
+  Parameters: {"todo"=>{"title"=>"新しいタスク", "completed"=>false}}
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `create'
+  [1m[36mTodo Create (2.5ms)[0m  [1m[32mINSERT INTO `todos` (`title`, `completed`, `created_at`, `updated_at`) VALUES ('新しいタスク', FALSE, '2025-07-25 03:37:24.705759', '2025-07-25 03:37:24.705759')[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `create'
+Completed 201 Created in 11ms (Views: 0.7ms | ActiveRecord: 5.7ms | Allocations: 1529)
+
+
+Started GET "/ws" for 192.168.65.1 at 2025-07-25 03:37:28 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+Started PUT "/api/v1/todos/2" for 192.168.65.1 at 2025-07-25 03:37:31 +0000
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"todo"=>{"completed"=>true}, "id"=>"2"}
+  [1m[36mTodo Load (1.1ms)[0m  [1m[34mSELECT `todos`.* FROM `todos` WHERE `todos`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:39:in `set_todo'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:24:in `update'
+  [1m[36mTodo Update (0.8ms)[0m  [1m[33mUPDATE `todos` SET `todos`.`completed` = TRUE, `todos`.`updated_at` = '2025-07-25 03:37:31.428752' WHERE `todos`.`id` = 2[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:24:in `update'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:24:in `update'
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 4.3ms | Allocations: 1915)
+
+
+Started DELETE "/api/v1/todos/2" for 192.168.65.1 at 2025-07-25 03:37:32 +0000
+Processing by Api::V1::TodosController#destroy as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT `todos`.* FROM `todos` WHERE `todos`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:39:in `set_todo'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:32:in `destroy'
+  [1m[36mTodo Destroy (0.3ms)[0m  [1m[31mDELETE FROM `todos` WHERE `todos`.`id` = 2[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:32:in `destroy'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:32:in `destroy'
+Completed 204 No Content in 7ms (ActiveRecord: 2.5ms | Allocations: 1482)
+
+

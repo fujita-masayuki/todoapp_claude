@@ -1,0 +1,1 @@
+# ActiveRecord configuration is handled by config/database.yml
